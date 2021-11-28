@@ -1,0 +1,9 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_book,access_book,model_book,base.group_user,1,1,1,1
+access_author,access_author,model_author,base.group_user,1,1,1,1
+access_bookcategory,access_bookcategory,model_bookcategory,base.group_user,1,1,1,1
+access_bookdepartment,access_bookdepartment,model_bookdepartment,base.group_user,1,1,1,1
+access_books_publisher,access_books_publisher,model_books_publisher,base.group_user,1,1,1,1
+access_issue,access_issue,model_issue,base.group_user,1,1,1,1
+access_shelf,access_shelf,model_shelf,base.group_user,1,1,1,1
+access_rack,access_rack,model_rack,base.group_user,1,1,1,1

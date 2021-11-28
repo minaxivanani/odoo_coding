@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="estate_property_form_book" model="ir.ui.view">
+        <field name="name">Book Name</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+
+            <form>
+                 <header>
+                    <button name="action_issued" type="object" string="Issued" attrs="{'invisible': [('state','=', 'issued')]}"/>
+                    <button name="action_cancel" type="object" string="Cancel" attrs="{'invisible': [('state','=', 'cancel')]}"/>
+                    <field name="state" widget="statusbar"/>
+		        </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+
+                        </h1>
+
+                    </div>
+                    <group>
+
+                        <group>
+                            <!--<field name="test_id"/>-->
+                            <!--<field name="state"/>-->
+
+                            <field name="category_id" widget="many2one_tags" options="{'color_field': 'color'}"/>
+                        </group>
+                        <group>
+                            <field name="book_image" widget="image" class="oe_avatar"/>
+
+                        </group>
+
+
+                    </group>
+
+                    <notebook>
+                        <page string="Book Details">
+                            <group>
+                                <group>
+                                    <field name="date"/>
+                                    <field name="code"/>
+                                    <field name="edition"/>
+
+                                </group>
+
+
+                            </group>
+                        </page>
+                        <page string="Book category">
+                            <group>
+                                <field name="category_id" widget="many2one_tags" options="{'color_field': 'color'}"/>
+                            </group>
+                        </page>
+
+                        <page string="Department">
+                            <group>
+                                <field name="department_id" widget="many2one_tags" options="{'color_field': 'color'}"/>
+                            </group>
+                        </page>
+
+
+                    </notebook>
+
+
+                </sheet>
+            </form>
+
+        </field>
+    </record>
+
+
+    <record id="add_author" model="ir.ui.view">
+        <field name="name">Add author</field>
+        <field name="model">author</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="add_category" model="ir.ui.view">
+        <field name="name">Add category</field>
+        <field name="model">bookcategory</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="book_type"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="add_department" model="ir.ui.view">
+        <field name="name">Add department</field>
+        <field name="model">bookdepartment</field>
+        <field name="arch" type="xml">
+            <tree>
+
+                <field name="name"/>
+
+
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="book_issue_form" model="ir.ui.view">
+        <field name="name">Book Issue</field>
+        <field name="model">issue</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <notebook>
+                        <page string="User Detail">
+                            <group>
+                                <group>
+                                    <field name="name"/>
+                                    <field name="email"/>
+                                    <field name="address"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Other Data">
+                            <group>
+                                <group>
+                                    <field name="dept_ids" widget="many2one_tags"/>
+                                    <field name="cat_ids" widget="many2one_tags"/>
+                                </group>
+                                <group>
+                                    <field name="issue_date"/>
+                                     <field name="ret_date"/>
+                                    <field name="rem_days" />
+                                     <field name="penlaty" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+     <record id="books_search" model="ir.ui.view">
+        <field name="name">Book Search</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="price"/>
+                <group name="edition"/>
+                <filter name="500 or more price" domain="[('price', '>', 500)]"/>
+                <filter name="Edition" domain="[('edition', '=', True)]"/>
+                <group expand="1" string="Group By">
+                     <filter string="Price" name="price" context="{'group_by': 'price'}"/>
+
+                     <filter string="code" name="barcode" context="{'group_by': 'code'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+</odoo>

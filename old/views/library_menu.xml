@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    
+	<record id="library_action" model="ir.actions.act_window">
+			<field name="name">Book</field>
+			<field name="res_model">mybook</field>
+			<field name="view_mode">tree,form</field>
+    </record>
+
+	<record id="books_author" model="ir.actions.act_window">
+			<field name="name">Book</field>
+			<field name="res_model">author</field>
+			<field name="view_mode">tree,form</field>
+    </record>
+	
+	
+	
+	<menuitem id="library_menu_root" name="My Library">
+		<menuitem id="library_sub_menu" name="Book Details">
+			<menuitem id="test_model_menu_action" action="library_action"/>
+		</menuitem>
+		
+	</menuitem>
+
+	<menuitem id="book_author_menu" name="Author" parent="library_menu_root"/>
+	<menuitem id="book_author_sub_menu" parent="book_author_menu" action="books_author"/>
+   
+
+
+	
+
+</odoo>

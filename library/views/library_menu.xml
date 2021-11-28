@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+	    
+		<record id="book_action" model="ir.actions.act_window">
+	        <field name="name">Books</field>
+	        <field name="res_model">book</field>
+	        <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="book_type_action" model="ir.actions.act_window">
+	        <field name="name">Book Type</field>
+	        <field name="res_model">test</field>
+	        <field name="view_mode">tree,form</field>
+        </record>
+
+		<record id="author_action" model="ir.actions.act_window">
+	        <field name="name">author list</field>
+	        <field name="res_model">author</field>
+	        <field name="view_mode">tree,form</field>
+        </record>
+
+	
+
+		
+
+    
+
+        
+		<menuitem id="book_root" name="Library">
+		    <menuitem id="bokk_sub_menu" name="Book">
+		        <menuitem id="menu_action" action="book_action"/>
+		    </menuitem>
+		</menuitem>
+
+		<menuitem id="book_type" name="Book return" parent="book_root"/>
+        <menuitem id="book_type_sub" parent="book_type" action="book_type_action"/>
+
+		<menuitem id="book_type_two" name="Book return" parent="book_root"/>
+        <menuitem id="book_type_sub_two" parent="book_type_two" action="author_action"/>
+
+	
+
+
+		
+
+
+</odoo>
