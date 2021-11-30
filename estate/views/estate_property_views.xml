@@ -107,11 +107,46 @@
         <field name="arch" type="xml">
             <calendar string="Property Available" date_start="date_deadline" color="id">
                 <field name="name"/>
-
-
             </calendar>
         </field>
     </record>
+
+
+    <record id="estate_property_kanban" model="ir.ui.view">
+        <field name="name">Estate Property Kanban</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="row">
+                            <div class="row">
+                                <field name="name"/>
+                                </div>
+                            <div class="row">
+                               <field name="selling_price"/>
+                            </div>
+                            <div class="row">
+                                <button name="action_sold" type="object" string="Sold"  class="btn btn-primary"/>
+                            </div>
+                                
+                        </div>         
+                    </t>
+                </templates>
+            </kanban>
+
+        </field>
+    </record>
+   <!--
+    <record id="estate_property_gantt" model="ir.ui.view">
+        <field name="name">Estate Property Gantt</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <gantt string="Data Available" date_start="date_availability"date_stop="date_deadline"/>
+               
+        </field>
+    </record>
+-->
 
     <record id="estate_property_graph" model="ir.ui.view">
         <field name="name">Estate Property Graph</field>
