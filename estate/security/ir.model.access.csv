@@ -5,3 +5,7 @@ access_estate_property_type,access_estate_property_type,model_estate_property_ty
 access_test,access_test,model_test,base.group_user,1,1,1,1 
 access_estate_property_tag,access_estate_property_tag,model_estate_property_tag,base.group_user,1,1,1,1
 access_estate_property_offer,access_estate_property_offer,model_estate_property_offer,base.group_user,1,1,1,1
+access_my_test,access_my_test,model_my_test,base.group_user,1,1,1,1
+access_my_gvp,access_my_gvp,model_my_gvp,base.group_user,1,1,1,1
+access_g2,access_g2,model_g2,base.group_user,1,1,1,1
+access_g3,access_g3,model_g3,base.group_user,1,1,1,1

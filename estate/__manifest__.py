@@ -2,6 +2,7 @@
     'name': 'New Real Estate',
     'category' : 'Sales',
     'application' : True,
+    'depends' : ['base','account'],
 
     'data':[
 
