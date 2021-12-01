@@ -117,18 +117,54 @@
         <field name="model">estate.property</field>
         <field name="arch" type="xml">
             <kanban>
+                <field name="image"/>
+                <field name="id"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="row">
-                            <div class="row">
-                                <field name="name"/>
+                        <div class="oe_kanban_global_click">
+                            <t t-if="record.image.raw_value">
+                                <div class="o_kanban_image"> 
+                                    <img t-att-src="kanban_image('estate.property','image',record.id.raw_value)"/>
                                 </div>
-                            <div class="row">
-                               <field name="selling_price"/>
+                            </t>
+                            <t t-else="">
+                                <div class="o_kanban_image"> 
+                                    <img t-att-src="_s + '/base/static/img/avatar_grey.png'" alt="add image"/>
+                                </div>
+                                
+                            </t>
+                            <div class="o_kanban_details">
+                                <strong><field name="name"/></strong>
+                                <ul>
+                                    <li><field name="date_availability"/></li>
+                                    <li><field name="selling_price"/></li>
+                                    
+                                </ul>
+
+                                 <!--<button class="btn btn-primary" name="%(real_estate_properties_offer_action)d" type="action">
+
+                                    <field name="property_offer_ids"/>
+                                 </button> -->
+                                 <button class="btn btn-primary" name="open_offer" type="object">
+
+                                    <field name="property_offer_ids"/>
+                                 </button>
                             </div>
-                            <div class="row">
-                                <button name="action_sold" type="object" string="Sold"  class="btn btn-primary"/>
-                            </div>
+
+
+                            
+                            <!--
+                            <div> 
+                                <b><field name="name"/></b><br/>
+                                
+                           
+                               <field name="selling_price"/><br/>
+                            
+                            
+                                <button name="action_sold" type="object" string="Sold"  class="btn btn-primary">Sold
+                                </button>
+                                
+                            </div> -->
                                 
                         </div>         
                     </t>

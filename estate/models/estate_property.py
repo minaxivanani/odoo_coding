@@ -193,5 +193,14 @@ class EstateProperty(models.Model):
             if record.living_area < record.garden_area:
                 raise ValidationError("Garden cannot be bigger than living area")        
 
+    
+    def open_offer(self):
+        return {
 
+            "type" : "ir.actions.act_window",
+            "res_model" : "estate.property.offer",
+            "views":[[False,'tree']],
+            "target":"new",
+            "domain":[('property_id','=',self.id)]
+        }
    
